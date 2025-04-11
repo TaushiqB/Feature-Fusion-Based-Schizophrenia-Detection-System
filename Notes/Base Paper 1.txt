@@ -1,0 +1,151 @@
+Phases:
+
+(i) MRI slices collection and pre-processing
+(ii) implementation of VGG16 to extract deep features (DF)
+(iii) collection of handcrafted features (HF)
+(iv) mayfly algorithm-supported optimal feature selection
+(v) serial feature concatenation
+(vi) binary classifier execution and validation.
+
+-> 40 patients’ brain MRI images (20 controlled and 20 SCZ class) 
+
+phases: 
+(i) collection and pre-processing of the test imagery, 
+(ii) pre-trained deep learning (PDL) scheme execution to mine the deep features (DF), 
+(iii) implementation of a chosen handcrafted feature, (HF) mining technique to get essential features, such as gray level co-occurrence matrix (GLCM) and local binary patterns (LBP), 
+(iv) mayfly optimization algorithm (MOA) supported feature optimization, 
+(v) serial feature concatenation to combine DF and HF, and 
+(vi) classification and validation using binary classifiers with five-fold cross-validation.
+
+Extracting HF steps:
+
+->Otsu’s thresholding and Markov random field (MRF)-based segmentation to get the gray matter (GM) and white matter (WM)
+->mining the GLCM from GM and WM images
+->LBP-based image enhancement
+
+
+Methodology:
+
+Preproccessing:
+-The dataset was in 3D form and 3D to 2D conversion was implemented using the ITK-Snap software.
+-separate the 3D MRI into an axial, coronal, and sagittal plane, and the axial plane was examined.
+-skull stripping: artifact removal procedure to eliminate the skull section
+
+Pre-trained Deep Learning scheme-VGG16(extract the DF from the brain MRI slices)-5-fold cross-validation.
+
+HF-machine-learning schemes-GLCM and LBP, were extracted.
+
+Otsu Thresholding:
+Otsu's binarization-segmenting a grayscale image into two classes, typically foreground and background.-Histogram Computation-Threshold Selection-Otsu's method aims to find the threshold that maximizes the separation between the two classes (white matter and gray matter)-inter-class variance-Binarization.
+
+MRF:
+A Markov Random Field (MRF) is a probabilistic graphical model used to represent complex systems with a set of random variables that exhibit Markov properties. Markov Property: The Markov property states that the probability of a random variable in the system depends only on its neighbors in the graph. In other words, the conditional probability distribution of each variable is influenced by the values of its neighboring variables. MRFs are typically represented using a graph, where nodes represent random variables, and edges represent dependencies between variables. MRFs are often defined using an energy function, which assigns a cost or energy to each configuration of variable assignments. The goal is to find the configuration that minimizes the total energy of the system. 
+-energy function that quantifies the compatibility or agreement between the observed data (image) and a proposed labeling of the pixels (such as classifying each pixel as white matter or gray matter)-goal is to find the optimal labeling (segmentation) of the image pixels that minimizes the energy function-The labeling that minimizes the energy function is the segmentation result, which assigns each pixel to a specific class (e.g., white matter or gray matter).
+
+
+
+Gray Level Co-Occurrence Matrix(GLCM):
+
+Steps used here:
+(i) implementation of MOA and Otsu’s thresholding to pre-process the image, 
+(ii) MRF-based image enhancement and pixel-based separation, 
+(iii) obtaining the GM and WM sections, and 
+(iv) GLCM separately feature extraction from GM and WM images. 
+
+GLCM:
+The Gray Level Co-occurrence Matrix (GLCM) is a statistical method used in image processing for texture analysis. It quantifies the spatial relationships of pixel values in an image. The GLCM is a square matrix where each element (i, j) represents the frequency at which two pixels with intensity values i and j occur in a specified spatial relationship. Here are the general steps to compute the 
+characterize the spatial relationships between pixel values in an image-GLCM can help in tasks such as distinguishing between different tissues or structures in medical images- It provides information about how frequently pairs of pixel values with certain spatial relationships occur in the image
+Steps in GLCM:
+Image Selection:
+
+Choose the grayscale image for which you want to compute the GLCM.
+Discretization:
+
+Discretize the intensity levels of the image into a certain number of gray levels 
+Spatial Relationship Definition:
+
+Define a spatial relationship or distance between pairs of pixels. The choice of spatial relationships depends on the specific characteristics of the texture you want to analyze.
+GLCM Computation:
+
+The GLCM is a square matrix where each element (i, j) represents the frequency at which two pixels with intensity values i and j occur in a specified spatial relationship.
+Normalization:
+
+Normalize the GLCM by dividing each element by the sum of all elements in the matrix.
+Feature Extraction:
+
+Compute various texture features from the normalized GLCM. 
+
+
+
+Local Binary Pattern:
+-quality improvement practices
+-weighted LBP was employed
+-The LBP is a simple and capable technique to enhance the textural components of the image
+-LBP encodes the local texture information in an image by comparing the intensity of a central pixel with its surrounding neighbors.
+
+Steps in LBP:
+Image Selection:
+
+Choose the grayscale image for which you want to compute Weighted Local Binary Patterns.
+Local Neighborhood Definition:
+
+Define a circular or square neighborhood around each pixel in the image. 
+Weight Assignment:
+
+Assign weights to each pixel in the local neighborhood. The weights can be based on various factors, such as the distance from the central pixel or the gradient magnitude at each pixel.
+ Weighted Sum Calculation:
+
+Calculate the weighted sum of the intensities in the local neighborhood using the assigned weights. This sum represents the contribution of each neighbor to the overall pattern.
+Thresholding:
+
+Compare the weighted sum obtained in the previous step with the intensity of the central pixel. If the central pixel's intensity is greater than or equal to the weighted sum, assign a value of 1; otherwise, assign a value of 0.
+Binary Concatenation:
+
+Concatenate the binary values obtained from the thresholding step in a clockwise or counterclockwise order to form a binary number. This binary number represents the weighted local pattern around the central pixel.
+Decimal Conversion:
+
+Convert the binary number obtained in the previous step to its decimal equivalent. This decimal value is the Weighted Local Binary Pattern value for the central pixel.
+Repeat for All Pixels:
+
+Repeat steps 3-7 for all pixels in the image. This process results in a new image where each pixel is replaced by its corresponding Weighted Local Binary Pattern value.
+Histogram Calculation:
+
+Compute a histogram of the Weighted Local Binary Patterns in the image. The histogram represents the distribution of different texture patterns.
+Feature Extraction:
+
+Optionally, you can use the histogram values as features for further analysis. Common texture features derived from W-LBP histograms include mean, variance, skewness, kurtosis, etc.
+The introduction of weights in the neighborhood calculation allows W-LBP to be more flexible in capturing texture patterns, particularly in scenarios where certain pixels are more significant than others. As with traditional LBP, the choice of parameters such as the size of the local neighborhood and the weight assignment strategy may impact the performance of W-LBP and may need to be adjusted based on the characteristics of the images being analyzed.
+
+Mayfly Algorithm Selected Features:
+
+-The MOA parameters were assigned as follows, the number of flies = 30, total iterations = 3000
+-MOA is considered to select the finest HF by comparing the features of CON and SCZ class images
+
+The Mayfly Optimization Algorithm (MOA) is a nature-inspired optimization algorithm that is inspired by the life cycle of mayflies, specifically their brief adult lifespan. 
+
+Steps:
+equal male (𝑀) and female (𝐹) flies, which are randomly distributed in a D-dimensional search location, every fly is symbolized by 𝑖=1,2,…,𝑛
+=Exploration Stage: each fly is permitted to join at the finest location (𝐺𝑏𝑒𝑠𝑡). 
+=Location and Speed: 𝑀 is approved to meet at 𝐺𝑏𝑒𝑠𝑡 by altering its location and speed.
+=Distance Matters: every 𝑀 will attain 𝐺𝑏𝑒𝑠𝑡 and performs a velocity update to attract 𝐹 by performing a unique nuptial dance. 
+=Nuptial Dance:
+=Joining: When the search by 𝑀 is over, each 𝐹 is allowed to find a 𝑀 converged at 𝐺𝑏𝑒𝑠𝑡
+=Feature Selection: select the best features based on the CD(cartesian Distance) of the CON and SCZ images.
+=Optimal Features:
+
+Serial Features Concatenation:
+employed to combine the HF and DF.
+
+Classification and Validation:
+Different binary classifiers considered.SoftMax, decision tree (DT), logistic regression, Naïve Bayes, SVM linear kernel, boosted trees and K-nearest neighbour (KNN
+accuracy (ACC), precision (PRE), sensitivity (SEN), specificity (SPE), negative predictive value (NPV), and F1-Score (FS)
+
+Result and Discussion:
+in DF performance was then verified using the SoftMax classifier with a 5-fold cross-validation
+
+In order to improve the accuracy achieved using individual DF and HF, a commonly adopted serial concatenation was then employed (DF+HF)
+
+helped to achieve a classification accuracy of >95% with a binary classification executed with the boosted trees classifier.
+
+
+

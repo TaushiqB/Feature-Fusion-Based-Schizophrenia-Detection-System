@@ -1,0 +1,40 @@
+-take functional magnetic resonance imaging (fMRI) data for schizophrenia
+-extract effective time series
+-perform correlation analysis on regions of interest
+-using transfer learning and VGG16 net
+-classification
+
+-use VGG16 to extract effective information from fMRI data to diagnose patients with schizophrenia.
+
+Methodology:
+=convolutional layer-used to detect edges, textures, and other low-level features-involves sliding a small filter (also called a kernel) over the input data and performing element-wise multiplications and summations to produce feature maps-Rectified Linear Unit (ReLU) activation function-3x3 convolution kernels allows the network to capture a large receptive field and control the computational load.  
+=downsampling layer(pooling layer)-Downsampling layers are used to reduce the spatial dimensions of the feature maps while retaining the most important information-Max-Pooling-Average-Pooling-VGG16 uses max-pooling with a 2x2 window
+=fully connected layer(dense layer)-Fully connected layers are responsible for learning global patterns and making final predictions-The output of a fully connected layer is typically used for making predictions-extract classification information from the feature maps. The network ends with a softmax layer for classification output.
+
+16 weight layers
+5 convolution modules
+3 fully connected layers
+
+Need for Improved: While deeper networks can capture more complex features, there can be diminishing returns. In some cases, increasing network depth may not significantly improve accuracy and may lead to longer training times. Increasing the depth of the network by using small 3x3 convolution kernels is a key feature of VGG16. comes with increased training time and computational cost. 
+
+
+
+Improved VGG16 Model:
+The VGG16 network is trained on a large data set ImageNet. The ImageNet data set is a 1000 classification problem data set, so the classification layer parameters of the VGG16 network are huge. The diagnosis of schizophrenia is a two-class classification problem and does not require a complex classification layer. Therefore, the feature extraction layer of the VGG16 network is retained, the classification layer is redesigned, and the original 3-layer fully connected layer is improved to a 2-layer fully connected layer. 
+
+Use the ReLU activation function, and add a dropout layer to prevent overfitting, and change the final output classification to two categories. The data can be divided into schizophrenia and nonschizophrenia, and the amount of parameters is reduced, so that the network converges faster, and the recognition speed of the data is improved.
+
+Dropout Layer:
+It involves randomly deactivating or "dropping out" a fraction of neurons or units during each training iteration. The main purpose of dropout is to improve the generalization of a neural network by reducing the reliance on individual neurons and preventing them from becoming overly specialized to the training data.
+
+
+
+overfitting= learns the training data too well, to the point where it starts fitting noise and random fluctuations in the data rather than capturing the underlying patterns-Models with a large number of parameters (e.g., deep neural networks) are more prone to overfitting.
+
+
+Transfer Learning:
+
+
+
+
+

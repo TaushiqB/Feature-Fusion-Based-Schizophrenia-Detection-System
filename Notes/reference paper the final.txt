@@ -1,0 +1,30 @@
+things to say:
+
+Introduction:
+- Schizophrenia is a serious mental illness affecting thinking, emotion, and behavior.
+- Diagnosis based on patient behavior.
+- Lack of objective diagnostic criteria and laboratory indicators.
+- Provides effective methods for the classification of schizophrenia.
+- Utilization of VGG16(visual geometry group) for extracting effective information from fMRI data.
+- public data set of the Center for Biomedical Research Excellence (COBRE)
+- contains 200 samples between the ages of 18
+and 65.
+
+Methodology:
+- The VGG16 network consists of 5 convolution modules, 3 fully connected layers, an input layer, and an output layer.
+- Each convolution module includes convolutional layers and downsampling layers using max pooling.
+- Convolutional layers use 3×3 convolution kernels with a step size of 1, and pooling layers use a 2×2 max pool.
+- Three fully connected layers follow the convolution modules.
+- The network employs the ReLU activation function and softmax layer for classification.
+- Retains the feature extraction layer of VGG16.
+- Redesigns the classification layer to a 2-layer fully connected layer for the schizophrenia classification problem.
+- Uses ReLU activation, dropout layer for preventing overfitting, and changes the output classification to two categories.
+- Utilizes a pretrained VGG16 model on the ImageNet dataset.
+- retains the feature extraction layer and retrains the classification layer for the schizophrenia classification model.
+- This methodology provides an overview of the VGG16 network, its limitations, improvements, and the application of transfer learning for the specific task of schizophrenia classification.
+ 
+Result:
+Preprocessing: Binarization, standardization, and smoothing.
+Metrics: Precision, accuracy, AUC.
+
+

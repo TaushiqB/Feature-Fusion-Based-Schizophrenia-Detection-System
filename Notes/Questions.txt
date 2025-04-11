@@ -1,0 +1,82 @@
+What is MRI?
+Magnetic resonance imaging is a medical imaging technique used in radiology to form pictures of the anatomy and the physiological processes of the body. MRI scanners use strong magnetic fields, magnetic field gradients, and radio waves to generate images of the organs in the body.
+
+
+What is MayFly Optimization Algorithm(moa)?
+The Mayfly Optimization Algorithm (MOA) is a nature-inspired optimization algorithm that is inspired by the life cycle of mayflies, specifically their brief adult lifespan. 
+
+steps:
+-Initialization: each potential solution is a mayfly
+-objective function: Evaluate quality to determine fitness value
+-Movements: Based on two principles:
+---Attraction: Move towards higher fitness values
+---Random Movement
+-Selection: Mayflies with highest fitness values are selected.
+
+
+what is optimization problem?
+An optimization problem is a mathematical or computational problem that involves finding the best solution among a set of possible solutions. 
+
+
+What is ITK snap?
+ITK-SNAP is an open-source software application used for medical image segmentation, visualization, and analysis. It stands for "Insight Segmentation and Registration Toolkit.
+
+what is five fold cross validation?
+K-fold cross-validation involves partitioning a dataset into "K" subsets or folds of approximately equal size and then training and evaluating the model K times, each time using a different fold as the test set while the remaining folds are used for training.
+
+what is accuracy?
+Accuracy is defined as the ratio of the correctly predicted instances to the total instances in the dataset.
+tp + tn / total
+
+
+What is White matter?
+white due to the myelin sheaths. White matter primarily serves as a communication network, facilitating the transmission of signals between different regions of the brain. It consists of bundles of myelinated axons, which act like "cables" to transmit electrical impulses and information between neurons and different brain regions.
+
+What is Gray matter?
+Gray matter is primarily involved in information processing and computation. It contains the cell bodies of neurons, where most of the neural signaling, integration, and decision-making occur. It is responsible for cognitive functions, perception, memory, and conscious thought.
+
+what is Gray Level Co-Occurrence Matrix?
+
+
+what is otsu thresholding?
+Otsu's thresholding, also known as Otsu's method or Otsu's binarization, is a widely used image processing technique for automatically segmenting a grayscale image into two classes, typically foreground and background, by selecting an optimal threshold value. This technique can be applied to MRI (Magnetic Resonance Imaging) brain scans to distinguish between white matter and gray matter.
+
+
+what is markov random field?
+
+what is correlation analysis?
+is a statistical method used to evaluate and quantify the degree of linear association or relationship between two or more variables. It measures how one variable changes concerning another and provides insights into the strength and direction of the relationship.
+
+what is transfer learning?
+Transfer learning is a machine learning technique in which a model developed for a particular task is reused or adapted for a related task. Instead of training a new model from scratch, transfer learning leverages the knowledge gained from one task to improve the performance on a different but related task. It's a powerful approach to enhance the efficiency and effectiveness of machine learning models, particularly when you have limited data for the new task. This is very useful in the data science field since most real-world problems typically do not have millions of labeled data points to train such complex models.
+
+What is Fmri?
+Functional Magnetic Resonance Imaging (fMRI) is a neuroimaging technique that measures and maps the brain's activity by detecting changes in blood flow. understanding how different regions of the brain are involved in various cognitive processes and behaviors.  fMRI is based on the principle that when a particular brain region becomes more active, it requires more oxygen and nutrients. To meet this increased demand, blood flow to that area increases. The fMRI scanner measures changes in blood flow and oxygenation, specifically the level of oxygenated and deoxygenated hemoglobin, to indirectly infer brain activity.
+
+What is SMRI?
+"Structural Magnetic Resonance Imaging," which is a well-known neuroimaging technique used to visualize the structural anatomy of the brain and other parts of the body. Structural Magnetic Resonance Imaging (sMRI) is used to create detailed images of the internal structures of the body, particularly the brain. 
+
+What is Resting state MRI?
+Resting-state functional Magnetic Resonance Imaging (rs-fMRI) is a specialized neuroimaging technique that is used to study the intrinsic functional connectivity and activity of the brain when a person is at rest, not engaged in any specific tasks. Unlike task-based fMRI, where individuals perform structured cognitive tasks inside the scanner. The brain is not idle when at rest; it exhibits synchronized fluctuations in activity across different regions. These fluctuations give rise to resting-state networks (RSNs), which are functional brain networks.
+
+What is VGG16?
+VGG16, short for "Visual Geometry Group 16," is a convolutional neural network (CNN) architecture used for deep learning tasks, particularly in computer vision. VGG16 is a deep CNN architecture consisting of 16 weight layers. These layers are organized into five convolutional blocks, followed by three fully connected layers. Rectified Linear Unit (ReLU) activation functions are used throughout the network to introduce non-linearity. 
+
+What is Precision?
+measures the accuracy of positive predictions made by a classification model.
+Precision = (True Positives) / (True Positives + False Positives)
+
+What is Decision Tree?
+A Decision Tree is a popular and interpretable machine learning model used for both classification and regression tasks. It is a tree-like structure where an internal node represents a feature or attribute, the branches represent the decision rules, and the leaf nodes represent the outcomes or class labels.
+
+What is Boosted trees classifier?
+Boosted tree classifiers, in particular, are built by combining multiple decision trees in a sequential manner.Base Model: The base model in a boosted tree classifier is typically a decision tree, often a shallow one (a "weak learner"). These decision trees are referred to as "stumps" when they have very few nodes or depth. Boosting involves training a series of weak learners sequentially. Each new learner is trained to correct the errors made by the previous ones. It pays more attention to the data points that were misclassified in earlier rounds.In each round of training, the data points that were misclassified by the previous learner are given higher weights, and the correctly classified points are given lower weights. This emphasizes the importance of the misclassified points in the next round.The boosting algorithm adapts over iterations to give more attention to the samples that are difficult to classify, gradually improving the model's performance.
+
+
+
+
+
+
+
+
+
